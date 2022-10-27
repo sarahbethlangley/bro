@@ -1,0 +1,14 @@
+
+.vehicle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.vehicle-card {
+  flex: 0 0 25%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
