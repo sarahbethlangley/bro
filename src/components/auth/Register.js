@@ -6,7 +6,7 @@ export const Register = (props) => {
     const [customer, setCustomer] = useState({
         email: "",
         fullName: "",
-        isStaff: false
+        isSales: false
     })
     let navigate = useNavigate()
 
@@ -21,9 +21,9 @@ export const Register = (props) => {
             .then(res => res.json())
             .then(createdUser => {
                 if (createdUser.hasOwnProperty("id")) {
-                    localStorage.setItem("honey_user", JSON.stringify({
+                    localStorage.setItem("bro_user", JSON.stringify({
                         id: createdUser.id,
-                        staff: createdUser.isStaff
+                        staff: createdUser.isSales
                     }))
 
                     navigate("/")
@@ -56,7 +56,7 @@ export const Register = (props) => {
     return (
         <main style={{ textAlign: "center" }}>
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Honey Rae Repairs</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Please Register for Bro Where's That Car</h1>
                 <fieldset>
                     <label htmlFor="fullName"> Full Name </label>
                     <input onChange={updateCustomer}
@@ -75,8 +75,8 @@ export const Register = (props) => {
                         copy.isStaff = evt.target.checked
                         setCustomer(copy)
                     }}
-                        type="checkbox" id="isStaff" />
-                    <label htmlFor="email"> I am an employee </label>
+                        type="checkbox" id="isSales" />
+                    <label htmlFor="email"> I am a Sales Associate</label>
                 </fieldset>
                 <fieldset>
                     <button type="submit"> Register </button>

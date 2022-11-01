@@ -1,18 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const handleSaveVehicle = (evt) => {
-  evt.preventDefault()
-} 
 
-export const VehicleForm = ({ setVehicles, location }) => {
+
+
+export const SalesForm = ({ setVehicles, location, vehicles }) => {
   const [userChoices, setUserChoices] = useState({
     stockNumber: "", 
     make: "", 
     model: "", 
     locationId: 0
   })
-
 
   const handleSaveVehicle = (evt) => {
     evt.preventDefault()

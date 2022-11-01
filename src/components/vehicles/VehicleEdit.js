@@ -1,47 +1,57 @@
-import { useState } from "react";
+import { Link } from "react-router-dom"
+import React, { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
+// import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const handleSaveVehicle = (evt) => {
-  evt.preventDefault()
-} 
-
-export const VehicleForm = ({ setVehicles, location }) => {
-  const [userChoices, setUserChoices] = useState({
+export const VehicleEdit= () => {
+    const history = useHistory()
+    const { vehicleId } = useParams()
+    const [vehicle, updateVehicle] = useState([])
+    const [userChoices, setUserChoices] = useState({
     stockNumber: "", 
     make: "", 
     model: "", 
     locationId: 0
   })
 
-
   const handleSaveVehicle = (evt) => {
     evt.preventDefault()
 
-    if (
-      userChoices.stockNumber 
-    )
-      
-      fetch(`http://localhost:8088/vehicles`, {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application.json'
-        },
-        body: JSON.stringify(userChoices)
-      }).then(() => {
-        fetch(`http://localhost:8088/vehicles`)
-          .then((res) => res.json())
-          .then(vehicleArray => {
-            setVehicles(vehicleArray)
-            setUserChoices({
-              
-                stockNumber: "", 
-                make: "", 
-                model: "", 
-                locationId: 0
-              
-            })
-          })
+   const updatedVehicle = {
+    stockNumber: vehicle.stockNumber, 
+    make: vehicle.make, 
+    model: vehicle.model, 
+    locationId: 0
+   }
+
+   const fetchOption = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedVehicle),
+  };
+
+  return fetch(
+    `http://localhost:8088/vehicles/${vehicle.id}`,
+    fetchOption
+  ).then(() => history.push("/vehicles"));
+};
+
+const deleteButton = () => {
+  return <button
+  className="vehicle-delete"
+  onClick={() => {
+    fetch('http://localhost:8088/vehicleform/${vehicle.id}', {
+      method: "DELETE"
+    })
+      .then(() => {
+        getAllVehicles()
       })
+  }} className="vehicle-delete"
+    >Delete</button>
+
     
   } 
 
@@ -171,10 +181,21 @@ export const VehicleForm = ({ setVehicles, location }) => {
           
             </div>
           </fieldset>
+          <button 
+      className="vehicle-add" 
+      onClick={(event) => {
+        handleSaveVehicle(event)}}
+        >Add Vehicle</button>
+
+      <button
+          className="vehicle-edit"
+          onClick={(event) => {
+            updateVehicle(event)}}
+            >Edit</button>
+      {
+        deleteButton()
+      }
         </form>
       </div>
-      <button className="button" onClick={(event) => {handleSaveVehicle(event)}}>Add Vehicle</button>
     </>
-  );
-};
-
+  )}

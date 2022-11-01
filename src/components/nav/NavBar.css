@@ -1,0 +1,32 @@
+.navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-color: lightslategray;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 1px 3px 4px grey;
+}
+
+.navbar__item {
+    flex-basis: 20%;
+    list-style-type: none;
+    text-align: center;
+    margin: auto;
+}
+
+.navbar__logout {
+    margin-left: auto;
+}
+
+.navbar_link {
+    text-decoration: none;
+    color: black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.25rem;
+}
+
+.navbar_link:hover {
+    text-decoration: double;
+}
+
