@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import "./NavBar.css"
 
-export const SalesNav = () => {
+export const ServiceNav = () => {
     const navigate = useNavigate()
 
     return (
@@ -16,7 +16,7 @@ export const SalesNav = () => {
                 <Link className="navbar__link" to="/offlot">Off Lot</Link>
             </li>
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/vehicleform">Vehicle Entry Form</Link>
+                <Link className="navbar__link" to="/serviceform">Used Car Inspection Form</Link>
             </li>
             {
                 localStorage.getItem("bro_user")

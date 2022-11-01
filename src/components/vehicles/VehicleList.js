@@ -1,26 +1,28 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import React from 'react'
+import { VehicleFilter } from "./VehicleFilter"
 
 
 export const VehicleList = ({ vehicles }) => {
+
+
+    return (
     <div className="vehicle-container">
-    {vehicles.map((vehicleObj) => {
+    {vehicles?.map((vehicleObj) => {
       return(
       <div className="vehicle-card" key={vehicleObj.id}>
         <div className="vehicle-stockNumber">
-          <p>Stock Number: {vehicleObj.stockNumber}</p>
+          <p>Stock Number: {vehicleObj.stockNumber}  </p>
         </div>
-        <div className="vehicle-make">Make: {vehicleObj.make}</div>
+        <div className="vehicle-make">
+          <p>Make: {vehicleObj.make}</p>
+          </div>
         <div className="vehicle-model">Model: {vehicleObj.model}</div>
         <div className="vehicle-location">
-          Location: {vehicleObj.locationId}
-        </div>
-        <div className="vehicle-UCI">
-          Vehicle UCI Status: {vehicleObj.UCI}
+          Location: {vehicleObj.location.location}
         </div>
       </div>
       )
     })}
   </div>
+  )
   }
-  

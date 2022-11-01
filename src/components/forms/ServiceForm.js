@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const handleSaveVehicle = (evt) => {
+const handleSaveVehicle = (evt) => {
   evt.preventDefault()
 } 
 
@@ -12,7 +12,6 @@ export const VehicleForm = ({ setVehicles, location }) => {
     model: "", 
     locationId: 0
   })
-
 
   const handleSaveVehicle = (evt) => {
     evt.preventDefault()
@@ -63,45 +62,6 @@ export const VehicleForm = ({ setVehicles, location }) => {
                 onChange={(event) => {
                   const copy = {...userChoices}
                   copy.stockNumber = event.target.value
-                  setUserChoices(copy)
-
-                }}
-              />
-            </div>
-          </fieldset>
-          <fieldset>
-            <div className="form-group">
-              <label htmlFor="make">Make : </label>
-              <input
-                required
-                id="make"
-                type="text"
-                className="form-control"
-                placeholder="Make"
-                value={userChoices.make}
-                onChange={(event) => {
-                  const copy = {...userChoices}
-                  copy.make = event.target.value
-                  setUserChoices(copy)
-
-                }}
-                
-              />
-            </div>
-          </fieldset>
-          <fieldset>
-            <div className="form-group">
-              <label htmlFor="model">Model : </label>
-              <input
-                required
-                id="model"
-                type="text"
-                className="form-control"
-                value={userChoices.model}
-                placeholder="Model"
-                onChange={(event) => {
-                  const copy = {...userChoices}
-                  copy.model = event.target.value
                   setUserChoices(copy)
 
                 }}
@@ -178,3 +138,4 @@ export const VehicleForm = ({ setVehicles, location }) => {
   );
 };
 
+console.log(VehicleForm)
