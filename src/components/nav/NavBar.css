@@ -4,7 +4,7 @@
     justify-content: center;
     background-color: lightslategray;
     border-radius: 1rem;
-    padding: 1rem;
+    padding: rem;
     box-shadow: 1px 3px 4px grey;
 }
 
@@ -15,18 +15,7 @@
     margin: auto;
 }
 
-.navbar__logout {
-    margin-left: auto;
-}
-
 .navbar_link {
-    text-decoration: none;
-    color: black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.25rem;
+    display: flex;
+    flex: auto;
 }
-
-.navbar_link:hover {
-    text-decoration: double;
-}
-
