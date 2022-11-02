@@ -8,7 +8,7 @@ import { VehicleEdit } from '../vehicles/VehicleEdit'
 
 
 
-export const ServiceViews = () => {
+export const ApplicationViews = () => {
 
 return (
     <Routes>
@@ -19,12 +19,12 @@ return (
 
             <Outlet />
             </>
+
         }>
-
             <Route path="vehicles" element={ <VehicleList /> } />
-         
-
+            <Route path="vehicleform" element={ <VehicleForm /> } />
         </Route>
+        
     </Routes>
 )
 }

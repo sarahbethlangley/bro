@@ -1,26 +1,27 @@
 import React, { useState } from "react"
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
 
+
 export const Login = () => {
-    const [email, set] = useState("hpassfield7@netvibes.com")
+    const [email, set] = useState("savage@myauto.com")
     const navigate = useNavigate()
 
     const handleLogin = (e) => {
         e.preventDefault()
-
+    
         return fetch(`http://localhost:8088/users?email=${email}`)
-            .then(res => res.json())
+            .then(response => response.json())
             .then(foundUsers => {
                 if (foundUsers.length === 1) {
                     const user = foundUsers[0]
                     localStorage.setItem("bro_user", JSON.stringify({
-                        id: user.id,
-                        staff: user.isSales
+                        id: user.id
                     }))
 
-                    navigate("/")
+
+                    navigate("/vehicles")
                 }
                 else {
                     window.alert("Invalid login")
@@ -32,13 +33,13 @@ export const Login = () => {
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Bro Where's That Car</h1>
+                    <h1>Bro</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"
                             value={email}
-                            onChange={evt => set(evt.target.value)}
+                            onChange={event => set(event.target.value)}
                             className="form-control"
                             placeholder="Email address"
                             required autoFocus />
@@ -51,9 +52,8 @@ export const Login = () => {
                 </form>
             </section>
             <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
+                <Link to="/register">Not a Bro yet?</Link>
             </section>
         </main>
     )
 }
-

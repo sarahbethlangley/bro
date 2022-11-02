@@ -1,8 +1,26 @@
 import React from 'react'
-import { VehicleFilter } from "./VehicleFilter"
+import { useState, useEffect } from "react"
 
 
-export const VehicleList = ({ vehicles }) => {
+export const VehicleList = () => {
+  const [vehicles, setVehicles] = useState([]);
+  const [choiceId, setVehicleChoiceId] = useState(0)
+  const [filterChoice, setFilterChoice] = useState([])
+  const [location, setLocation] = useState([])
+
+  
+  useEffect(() => {
+    fetch(`http://localhost:8088/vehicles`)
+      .then((res) => res.json())
+      .then((vehicleArray) => setVehicles(vehicleArray))
+
+      fetch(`http://localhost:8088/locations`)
+      .then((res) => res.json())
+      .then((locationArray) => setLocation(locationArray))
+  }, [])
+  
+
+
 
 
     return (
@@ -18,7 +36,7 @@ export const VehicleList = ({ vehicles }) => {
           </div>
         <div className="vehicle-model">Model: {vehicleObj.model}</div>
         <div className="vehicle-location">
-          Location: {vehicleObj.location.location}
+          Location: {vehicleObj.location}
         </div>
       </div>
       )

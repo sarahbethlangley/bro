@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const handleSaveVehicle = (evt) => {
-  evt.preventDefault()
-} 
 
-export const VehicleForm = ({ setVehicles, location }) => {
+export const VehicleForm = () => {
+  const [vehicles, setVehicles] = useState([]);
+  const [location, setLocation] = useState([])
   const [userChoices, setUserChoices] = useState({
     stockNumber: "", 
     make: "", 
@@ -148,27 +147,6 @@ export const VehicleForm = ({ setVehicles, location }) => {
                 }}
                 
               />
-            </div>
-          </fieldset>
-          <fieldset>
-            <div className="form-group">
-              <label htmlFor="uci">Used Car Inspection : </label>
-              <input
-                required
-                id="uci"
-                type="text"
-                placeholder=""
-                value=""
-                className="form-control"
-                onChange={(event) => {
-                  const copy = {...userChoices}
-                  copy.make = event.target.value
-                  setUserChoices(copy)
-
-                }}
-                
-              />
-          
             </div>
           </fieldset>
         </form>
