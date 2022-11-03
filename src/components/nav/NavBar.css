@@ -1,11 +1,11 @@
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: center;
-    background-color: lightslategray;
+    justify-content: space-evenly;
+    background-color: rgb(42, 42, 172);
     border-radius: 1rem;
     padding: rem;
-    box-shadow: 1px 3px 4px grey;
+    box-shadow: 1px 3px 4px rgb(242, 237, 237);
 }
 
 .navbar__item {

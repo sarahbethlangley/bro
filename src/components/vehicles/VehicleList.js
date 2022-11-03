@@ -1,12 +1,16 @@
 import React from 'react'
 import { useState, useEffect } from "react"
+import { LocationFilter } from '../vehicles/LocationFilter'
+// import { UploadAndDisplayImage } from "./components/vehicles/VehicleImage";
 
 
 export const VehicleList = () => {
   const [vehicles, setVehicles] = useState([]);
-  const [choiceId, setVehicleChoiceId] = useState(0)
-  const [filterChoice, setFilterChoice] = useState([])
   const [location, setLocation] = useState([])
+  const [choiceId, setVehicleChoiceId] = useState([0])
+  const [filterChoice, setFilterChoice] = useState([])
+
+  // const image = UploadAndDisplayImage()
 
   
   useEffect(() => {
@@ -23,8 +27,11 @@ export const VehicleList = () => {
 
 
 
-    return (
+  return (
     <div className="vehicle-container">
+      <div>
+        <LocationFilter />
+      </div>
     {vehicles?.map((vehicleObj) => {
       return(
       <div className="vehicle-card" key={vehicleObj.id}>
