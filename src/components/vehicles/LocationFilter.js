@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom"
 
 
 export const LocationFilter = ({ handleSelectLocation }) => {
-  const [vehicles, setVehicles] = useState([]);
   const [choiceId, setVehicleChoiceId] = useState(0)
   const [filterChoice, setFilterChoice] = useState([])
   const [location, setLocation] = useState([])
@@ -33,7 +32,10 @@ export const LocationFilter = ({ handleSelectLocation }) => {
             className="filter-box"
             id="location-make-select"
             onChange={(event) => 
-              handleSelectLocation(event.target.value)}
+              handleSelectLocation({
+                id: event.target.selectedIndex,
+                name: event.target.value
+              })}
             >
             <option key={0} value="0">All Locations</option>
             {location.map((locationObj) => {
