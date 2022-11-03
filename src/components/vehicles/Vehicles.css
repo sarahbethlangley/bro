@@ -31,3 +31,14 @@
     margin-left: auto;
     background-color: cadetBlue;
   }
+
+  .vehicle-filter {
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+  }
+
+  .vehicle-filter-title {
+    display: flex;
+    justify-content: center;
+  }

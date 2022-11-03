@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Routes, Outlet } from 'react-router-dom'
 import { VehicleForm } from '../vehicles/VehicleForm'
 import { VehicleList } from '../vehicles/VehicleList'
-import { VehicleEdit } from '../vehicles/VehicleEdit'
+
 
 
 
@@ -11,6 +11,8 @@ import { VehicleEdit } from '../vehicles/VehicleEdit'
 export const ApplicationViews = () => {
 
 return (
+    <>
+    
     <Routes>
         <Route path="/" element ={
             <>
@@ -26,5 +28,6 @@ return (
         </Route>
         
     </Routes>
+    </>
 )
 }
