@@ -75,9 +75,10 @@ export const VehicleList = () => {
   return (
     <>
       <div className="vehicle-container">
-        <div>
+
+        {/* <div>
           <LocationFilter handleSelectLocation={handleSelectLocation} />{" "}
-        </div>
+        </div> */}
         {vehicles?.map((vehicleObj) => {
           return (
             <div className="vehicle-card" key={vehicleObj.id}>
