@@ -1,49 +1,51 @@
-import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
-
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const LocationFilter = ({ handleSelectLocation }) => {
-  const [choiceId, setVehicleChoiceId] = useState(0)
-  const [filterChoice, setFilterChoice] = useState([])
-  const [location, setLocation] = useState([])
-
+  const [choiceId, setVehicleChoiceId] = useState(0);
+  const [filterChoice, setFilterChoice] = useState([]);
+  const [location, setLocation] = useState([]);
 
   useEffect(() => {
     fetch(`http://localhost:8088/locations`)
       .then((res) => res.json())
-      .then((locationArray) => setLocation(locationArray))
-      }, [])
-    
+      .then((locationArray) => setLocation(locationArray));
+  }, []);
 
   useEffect(() => {
     if (choiceId === 0) {
-      setFilterChoice(location)
+      setFilterChoice(location);
     } else {
-      const locationChoiceItems = location.filter(locationObj => locationObj.id === choiceId)
-      setFilterChoice(locationChoiceItems)
-      }
-    }, [choiceId, location])
+      const locationChoiceItems = location.filter(
+        (locationObj) => locationObj.id === choiceId
+      );
+      setFilterChoice(locationChoiceItems);
+    }
+  }, [choiceId, location]);
 
-
-
-    return (
+  return (
     <div className="location-select-container">
-          <select
-            className="filter-box"
-            id="location-make-select"
-            onChange={(event) => 
-              handleSelectLocation({
-                id: event.target.selectedIndex,
-                name: event.target.value
-              })}
-            >
-            <option key={0} value="0">All Locations</option>
-            {location.map((locationObj) => {
-              return(
-             <option key={locationObj.id} value={locationObj.id}>{locationObj.name}</option>
-              )
-            })}
-          </select>
-          </div>
-
-    )}
+      <select
+        className="filter-box"
+        id="location-make-select"
+        onChange={(event) =>
+          handleSelectLocation({
+            id: event.target.selectedIndex,
+            name: event.target.value,
+          })
+        }
+      >
+        <option key={0} value="0">
+          All Locations
+        </option>
+        {location.map((locationObj) => {
+          return (
+            <option key={locationObj.id} value={locationObj.name}>
+              {locationObj.name}
+            </option>
+          );
+        })}
+      </select>
+    </div>
+  );
+};
