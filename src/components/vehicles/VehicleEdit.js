@@ -1,58 +1,60 @@
-import { Link } from "react-router-dom"
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { LocationFilter } from "./LocationFilter"
+import { useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { LocationFilter } from "./LocationFilter";
 
-export const VehicleEdit= ( {handleSelectLocation} ) => {
-    const [vehicle, setVehicle] = useState({
-    stockNumber: "", 
-    make: "", 
-    model: "", 
+export const VehicleEdit = (evt) => {
+  const [vehicle, setVehicle] = useState({
+    stockNumber: "",
+    make: "",
+    model: "",
     locationName: "",
-    locationId: 0
-  })
-
+    locationId: 0,
+  });
   const [userChoices, setUserChoices] = useState({
     stockNumber: "",
     make: "",
     model: "",
     locationName: "",
     locationId: 0,
-  })
+  });
 
-  const navigate = useNavigate()
+  let navigate = useNavigate();
 
-  const vehicleEditId = localStorage.getItem("editVehicleId")
+  const vehicleEditId = localStorage.getItem("editVehicleId");
 
-  const getVehicleById = (evt) => {
+  const handleSelectLocation = (loc) => {
+    const copy = { ...userChoices };
+    copy.locationId = parseInt(loc.id);
+    copy.locationName = loc.name;
+    setUserChoices(copy);
+  };
+
+  const getVehicleById = () => {
     const requestOptions = {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-    }
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    };
     fetch(`http://localhost:8088/vehicles/${vehicleEditId}`, requestOptions)
       .then((response) => response.json())
-      .then((vehicle) => setVehicle(vehicle))
-  }
-
+      .then((vehicle) => setVehicle(vehicle));
+  };
   useEffect(() => {
-    getVehicleById()
-  }, [])
-
+    getVehicleById();
+  }, []);
 
   const handleEditVehicle = (evt) => {
-    evt.preventDefault()
+    evt.preventDefault();
     const requestOptions = {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userChoices),
-    }
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(userChoices),
+    };
     fetch(`http://localhost:8088/vehicles/${vehicleEditId}`, requestOptions)
       .then((response) => response.json())
       .then(() => {
-        navigate("/vehicles")
-      })
-  }
+        navigate("/vehicles");
+      });
+  };
 
   return (
     <>
@@ -69,9 +71,9 @@ export const VehicleEdit= ( {handleSelectLocation} ) => {
                 className="form-control"
                 defaultValue={vehicle.stockNumber}
                 onChange={(event) => {
-                  const copy = { ...userChoices }
-                  copy.stockNumber = event.target.value
-                  setUserChoices(copy)
+                  const copy = { ...userChoices };
+                  copy.stockNumber = event.target.value;
+                  setUserChoices(copy);
                 }}
               />
             </div>
@@ -86,9 +88,9 @@ export const VehicleEdit= ( {handleSelectLocation} ) => {
                 className="form-control"
                 defaultValue={vehicle.make}
                 onChange={(event) => {
-                  const copy = { ...userChoices }
-                  copy.make = event.target.value
-                  setUserChoices(copy)
+                  const copy = { ...userChoices };
+                  copy.make = event.target.value;
+                  setUserChoices(copy);
                 }}
               />
             </div>
@@ -103,9 +105,9 @@ export const VehicleEdit= ( {handleSelectLocation} ) => {
                 className="form-control"
                 defaultValue={vehicle.model}
                 onChange={(event) => {
-                  const copy = { ...userChoices }
-                  copy.model = event.target.value
-                  setUserChoices(copy)
+                  const copy = { ...userChoices };
+                  copy.model = event.target.value;
+                  setUserChoices(copy);
                 }}
               />
             </div>
@@ -113,8 +115,12 @@ export const VehicleEdit= ( {handleSelectLocation} ) => {
           <fieldset>
             <div className="form-group">
               <label htmlFor="make">Locations : </label>
-              <LocationFilter key={ userChoices.locationId } id="locationId" defaultValue={ vehicle.locationName }
-                handleSelectLocation={ handleSelectLocation } />
+              <LocationFilter
+                key={userChoices.locationId}
+                id="locationId"
+                defaultValue={vehicle.locationName}
+                handleSelectLocation={handleSelectLocation}
+              />
             </div>
           </fieldset>
         </form>
@@ -122,11 +128,11 @@ export const VehicleEdit= ( {handleSelectLocation} ) => {
       <button
         className="button"
         onClick={(event) => {
-          handleEditVehicle(event)
+          handleEditVehicle(event);
         }}
       >
         Update Vehicle
       </button>
     </>
-  )
-}
+  );
+};
