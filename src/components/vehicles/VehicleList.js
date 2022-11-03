@@ -75,6 +75,7 @@ export const VehicleList = () => {
   return (
     <>
       <div className="vehicle-container">
+
         {/* <div>
           <LocationFilter handleSelectLocation={handleSelectLocation} />{" "}
         </div> */}
