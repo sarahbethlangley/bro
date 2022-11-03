@@ -86,10 +86,10 @@ const handleSelectLocation = (loco) => {
 
   return (
     <div className="vehicle-container">
-      <div>
+      {/* <div>
         <LocationFilter handleSelectLocation={ handleSelectLocation } />
         {" "}
-      </div>
+      </div> */}
     {vehicles?.map((vehicleObj) => {
       return(
       <div className="vehicle-card" key={vehicleObj.id}>
