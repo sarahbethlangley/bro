@@ -15,7 +15,7 @@ export const NavBar = () => {
                 <Link className="navbar__link" to="/vehicles">All Vehicles</Link>
             </li>
             <li className="navbar__vehicleform">
-                <Link className="navbar__link" to="/vehicleform">Vehicle Entry Form</Link>
+                <Link className="navbar__link" to="/vehicles/create">Vehicle Entry Form</Link>
             </li>
             {
                 localStorage.getItem("bro_user")

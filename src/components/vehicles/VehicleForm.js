@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import { LocationFilter } from "./LocationFilter"
 
 
@@ -10,17 +10,18 @@ export const VehicleForm = () => {
     stockNumber: "", 
     make: "", 
     model: "", 
+    locationName: "",
     locationId: 0
   })
 
 
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const handleSelectLocation = (loc) => {
-    setLocation(loc)
+  const handleSelectLocation = (loco) => {
+    setLocation(loco)
     const copy = {...userChoices }
-    copy.locationId = parseInt(loc)
+    copy.locationId = parseInt(loco)
     setUserChoices(copy)
   }
 
@@ -41,22 +42,6 @@ export const VehicleForm = () => {
  })
 }
 
- // const handleEditVehicle = (evt) => {
-//   evt.preventDefault()
-// const requestOptions = {
-//   method: "PUT",
-//   headers: { "Content-Type": "application/json" },
-//   body: JSON.stringify(userChoices),
-// }
-
-// fetch("http://localhost:8088/vehicles", requestOptions)
-//   .then((res) => res.JSON())
-//   .then((data) => setVehicles(data.id))
-//   .then(() => {
-//     navigate("/vehicles")
-//   })
-// }
-
 
  return (
   <>
@@ -74,9 +59,9 @@ export const VehicleForm = () => {
               placeholder="Stock Number"
               value={userChoices.stockNumber}
               onChange={(event) => {
-                const copy = { ...userChoices };
-                copy.stockNumber = event.target.value;
-                setUserChoices(copy);
+                const copy = { ...userChoices }
+                copy.stockNumber = event.target.value
+                setUserChoices(copy)
               }}
             />
           </div>
@@ -92,9 +77,9 @@ export const VehicleForm = () => {
               placeholder="Make"
               value={userChoices.make}
               onChange={(event) => {
-                const copy = { ...userChoices };
-                copy.make = event.target.value;
-                setUserChoices(copy);
+                const copy = { ...userChoices }
+                copy.make = event.target.value
+                setUserChoices(copy)
               }}
             />
           </div>
@@ -110,52 +95,26 @@ export const VehicleForm = () => {
               value={userChoices.model}
               placeholder="Model"
               onChange={(event) => {
-                const copy = { ...userChoices };
-                copy.model = event.target.value;
-                setUserChoices(copy);
+                const copy = { ...userChoices }
+                copy.model = event.target.value
+                setUserChoices(copy)
               }}
             />
           </div>
         </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <label htmlFor="make">Locations : </label>
-            <LocationFilter id="locationId" handleSelectLocation={handleSelectLocation} />
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <label htmlFor="address">Third Party Location Address : </label>
-            <input
-              required
-              id="address"
-              type="text"
-              className="form-control"
-              placeholder="Leave blank if on lot"
-              value=""
-              onChange={(event) => {
-                const copy = { ...userChoices };
-                copy.make = event.target.value;
-                setUserChoices(copy);
-              }}
-            />
-          </div>
-        </fieldset>
-      </form>
-    </div>
-    <button
-      className="button"
-      onClick={(event) => {
-        handleSaveVehicle(event)
-      }}
-    >
-      Add Vehicle
-    </button>
-  </>
-)
-
+        </form>
+      </div>
+      <button
+        className="button"
+        onClick={(event) => {
+          handleSaveVehicle(event)
+        }}
+      >
+        Add Vehicle
+      </button>
+    </>
+  )
 }
-
 
 
 
