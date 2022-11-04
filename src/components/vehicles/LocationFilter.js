@@ -1,27 +1,27 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 export const LocationFilter = ({ handleSelectLocation }) => {
-  const [choiceId, setVehicleChoiceId] = useState(0);
-  const [filterChoice, setFilterChoice] = useState([]);
-  const [location, setLocation] = useState([]);
+  const [choiceId, setVehicleChoiceId] = useState(0)
+  const [filterChoice, setFilterChoice] = useState([])
+  const [location, setLocation] = useState([])
 
   useEffect(() => {
     fetch(`http://localhost:8088/locations`)
       .then((res) => res.json())
-      .then((locationArray) => setLocation(locationArray));
-  }, []);
+      .then((locationArray) => setLocation(locationArray))
+  }, [])
 
   useEffect(() => {
     if (choiceId === 0) {
-      setFilterChoice(location);
+      setFilterChoice(location)
     } else {
       const locationChoiceItems = location.filter(
         (locationObj) => locationObj.id === choiceId
-      );
-      setFilterChoice(locationChoiceItems);
+      )
+      setFilterChoice(locationChoiceItems)
     }
-  }, [choiceId, location]);
+  }, [choiceId, location])
 
   return (
     <div className="location-select-container">
@@ -43,9 +43,9 @@ export const LocationFilter = ({ handleSelectLocation }) => {
             <option key={locationObj.id} value={locationObj.name}>
               {locationObj.name}
             </option>
-          );
+          )
         })}
       </select>
     </div>
-  );
-};
+  )
+}

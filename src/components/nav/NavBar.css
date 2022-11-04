@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-evenly;
-    background-color: rgb(107, 25, 194);
+    /* background-color: rgb(107, 25, 194); */
     border-radius: 1rem;
     padding: rem;
     box-shadow: 1px 3px 4px grey;
@@ -13,10 +13,12 @@
     list-style-type: none;
     text-align: center;
     margin: auto;
+    color: whitesmoke;
 }
 
 .navbar_link {
     display: flex;
     flex: auto;
     justify-content: space-around;
+    color: whitesmoke;
 }

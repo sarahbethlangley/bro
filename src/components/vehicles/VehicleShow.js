@@ -1,13 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 
 export const VehicleShow = (evt) => {
   const [vehicle, setVehicle] = useState([]);
 
   const getVehicleById = (evt) => {
     let vehicleId = parseInt(localStorage.getItem("showVehicleId"));
-    console.log(vehicleId);
+    
     const requestOptions = {
       method: "GET",
       headers: { "Content-Type": "application/json" },
