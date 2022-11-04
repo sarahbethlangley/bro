@@ -6,6 +6,7 @@ export const VehicleShow = (evt) => {
 
   const getVehicleById = (evt) => {
     let vehicleId = parseInt(localStorage.getItem("showVehicleId"));
+    
     const requestOptions = {
       method: "GET",
       headers: { "Content-Type": "application/json" },

@@ -1,9 +1,9 @@
 import React from "react";
-import { Route, Routes, Outlet } from "react-router-dom"
-import { VehicleForm } from "../vehicles/VehicleForm"
+import { Route, Routes, Outlet } from "react-router-dom";
+import { VehicleForm } from "../vehicles/VehicleForm";
 import { VehicleList } from "../vehicles/VehicleList"
-import { VehicleEdit } from "../vehicles/VehicleEdit"
-import { VehicleShow } from "../vehicles/VehicleShow"
+import { VehicleEdit } from "../vehicles/VehicleEdit";
+import { VehicleShow } from "../vehicles/VehicleShow";
 
 export const ApplicationViews = () => {
   return (
@@ -22,8 +22,8 @@ export const ApplicationViews = () => {
         <Route path="/vehicles" element={<VehicleList />} />
         <Route path="/vehicles/create" element={<VehicleForm />} />
         <Route path="/vehicles/edit" element={<VehicleEdit />} />
-        <Route path="/vehicles/:vehicleId" element={<VehicleShow />} />
+        <Route path="/vehicles/view" element={<VehicleShow />} />
       </Route>
     </Routes>
-  )
-}
+  );
+};
