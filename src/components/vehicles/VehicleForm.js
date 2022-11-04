@@ -1,40 +1,40 @@
-import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-import { LocationFilter } from "./LocationFilter";
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { LocationFilter } from "./LocationFilter"
 
 export const VehicleForm = () => {
-  const [vehicles, setVehicles] = useState([]);
-  const [location, setLocation] = useState([]);
+  const [vehicles, setVehicles] = useState([])
   const [userChoices, setUserChoices] = useState({
     stockNumber: "",
     make: "",
     model: "",
     locationName: "",
     locationId: 0,
-  });
+  })
 
-  let navigate = useNavigate();
+
+  const navigate = useNavigate()
   const handleSelectLocation = (loc) => {
-    const copy = { ...userChoices };
-    copy.locationId = parseInt(loc.id);
-    copy.locationName = loc.name;
-    setUserChoices(copy);
-  };
+    const copy = { ...userChoices }
+    copy.locationId = parseInt(loc.id)
+    copy.locationName = loc.name
+    setUserChoices(copy)
+  }
 
-  const handleSaveVehicle = (evt) => {
-    evt.preventDefault();
+  const handleSaveVehicle = (event) => {
+    event.preventDefault()
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userChoices),
-    };
+    }
     fetch("http://localhost:8088/vehicles", requestOptions)
       .then((response) => response.json())
       .then((data) => setVehicles(data.id))
       .then(() => {
-        navigate("/vehicles");
-      });
-  };
+        navigate("/vehicles")
+      })
+  }
 
   return (
     <>
@@ -52,9 +52,9 @@ export const VehicleForm = () => {
                 placeholder="Stock Number"
                 value={userChoices.stockNumber}
                 onChange={(event) => {
-                  const copy = { ...userChoices };
-                  copy.stockNumber = event.target.value;
-                  setUserChoices(copy);
+                  const copy = { ...userChoices }
+                  copy.stockNumber = event.target.value
+                  setUserChoices(copy)
                 }}
               />
             </div>
@@ -70,9 +70,9 @@ export const VehicleForm = () => {
                 placeholder="Make"
                 value={userChoices.make}
                 onChange={(event) => {
-                  const copy = { ...userChoices };
-                  copy.make = event.target.value;
-                  setUserChoices(copy);
+                  const copy = { ...userChoices }
+                  copy.make = event.target.value
+                  setUserChoices(copy)
                 }}
               />
             </div>
@@ -88,9 +88,9 @@ export const VehicleForm = () => {
                 value={userChoices.model}
                 placeholder="Model"
                 onChange={(event) => {
-                  const copy = { ...userChoices };
-                  copy.model = event.target.value;
-                  setUserChoices(copy);
+                  const copy = { ...userChoices }
+                  copy.model = event.target.value
+                  setUserChoices(copy)
                 }}
               />
             </div>
@@ -98,10 +98,7 @@ export const VehicleForm = () => {
           <fieldset>
             <div className="form-group">
               <label htmlFor="make">Locations : </label>
-              <LocationFilter
-                id="locationId"
-                handleSelectLocation={handleSelectLocation}
-              />
+              <LocationFilter id="locationId" handleSelectLocation={handleSelectLocation} />
             </div>
           </fieldset>
         </form>
@@ -109,17 +106,14 @@ export const VehicleForm = () => {
       <button
         className="button"
         onClick={(event) => {
-          handleSaveVehicle(event);
+          handleSaveVehicle(event)
         }}
       >
         Add Vehicle
       </button>
     </>
-  );
-};
-
-
-
+  )
+}
 
 
 
