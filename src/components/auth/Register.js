@@ -1,12 +1,13 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
-import { Link } from "react-router-dom"
+
 
 export const Register = (props) => {
     const [user, setUser] = useState({
         email: "",
-        fullName: ""
+        fullName: "",
+        isSales: false
     })
 
     let navigate = useNavigate()
@@ -23,7 +24,8 @@ export const Register = (props) => {
             .then(theUser => {
                 if (theUser.hasOwnProperty("id")) {
                     localStorage.setItem("bro_user", JSON.stringify({
-                        id: theUser.id
+                        id: theUser.id,
+                        sales: theUser.isSales
                     }))
 
 
@@ -69,6 +71,15 @@ export const Register = (props) => {
                     <input onChange={updateUser}
                         type="email" id="email" className="form-control"
                         placeholder="Email address" required />
+                </fieldset>
+                <fieldset>
+                    <input onChange={(evt) => {
+                        const copy = {...user}
+                        copy.isSales = evt.target.checked
+                        setUser(copy)
+                    }}
+                        type="checkbox" id="isSales" />
+                    <label htmlFor="email"> I am a Sales Representative </label>
                 </fieldset>
                 <fieldset>
                     <button type="submit"> Register </button>

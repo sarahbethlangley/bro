@@ -5,7 +5,7 @@ import "./Login.css"
 
 
 export const Login = () => {
-    const [email, set] = useState("savage@myauto.com")
+    const [email, set] = useState("savage@sales.myauto.com")
     const navigate = useNavigate()
 
     const handleLogin = (e) => {
@@ -17,11 +17,12 @@ export const Login = () => {
                 if (foundUsers.length === 1) {
                     const user = foundUsers[0]
                     localStorage.setItem("bro_user", JSON.stringify({
-                        id: user.id
+                        id: user.id,
+                        sales: user.isSales
                     }))
 
 
-                    navigate("/vehicles")
+                    navigate("/")
                 }
                 else {
                     window.alert("Invalid login")
@@ -36,7 +37,7 @@ export const Login = () => {
                     <h1>Bro</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
+                        <label htmlFor="inputEmail"> Email: </label>
                         <input type="email"
                             value={email}
                             onChange={event => set(event.target.value)}

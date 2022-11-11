@@ -1,29 +1,19 @@
-import React from "react";
-import { Route, Routes, Outlet } from "react-router-dom";
-import { VehicleForm } from "../vehicles/VehicleForm";
-import { VehicleList } from "../vehicles/VehicleList"
-import { VehicleEdit } from "../vehicles/VehicleEdit";
-import { VehicleShow } from "../vehicles/VehicleShow";
+import { SalesView } from "./SalesView"
+import { ServiceView } from "./ServiceView"
+
+
+
 
 export const ApplicationViews = () => {
-  return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <>
-            <h1>Bro Where's That Car</h1>
-            <div>Locating vehicles across the dealership and beyond</div>
 
-            <Outlet />
-          </>
-        }
-      >
-        <Route path="/vehicles" element={<VehicleList />} />
-        <Route path="/vehicles/create" element={<VehicleForm />} />
-        <Route path="/vehicles/edit" element={<VehicleEdit />} />
-        <Route path="/vehicles/view" element={<VehicleShow />} />
-      </Route>
-    </Routes>
-  );
-};
+	const localBroUser = localStorage.getItem("bro_user")
+	const broUserObject = JSON.parse(localBroUser)
+
+	if (broUserObject.sales) {
+		return <SalesView />
+
+	}
+	else {
+		return <ServiceView />
+	}	
+}
