@@ -8,6 +8,10 @@ export const VehicleList = () => {
   const [vehicles, setVehicles] = useState([])
   const [locationId, setLocationId] = useState([])
   const [location, setLocation] = useState({})
+
+  const localBroUser = localStorage.getItem("bro_user")
+  const broUserObject = JSON.parse(localBroUser)
+
   const [userChoices, setUserChoices] = useState({
     stockNumber: "",
     make: "",
@@ -15,6 +19,7 @@ export const VehicleList = () => {
     locationName: "",
     locationId: 0,
   })
+
   const navigate = useNavigate()
 
   // simple post request with JSON body using fetch https://jasonwatmore.com/post/2020/02/01/react-fetch-http-post-request-examples
@@ -58,15 +63,14 @@ export const VehicleList = () => {
       .then((loc) => setLocation(loc.name))
   }, [])
 
-  // if you name your functions after what they actually do or are supposed to do, then it's easier to keep up with what the function is supposed to do.  naming conventions are important
   
 
 
 
 
   
-  // getting it by th event.target.value, it's passing the value of the idea, using the delete method, reloads the page to to get a refresh of the data
   const handleDelete = (event) => {
+    
     fetch(`http://localhost:8088/vehicles/${event.target.value}`, {
       method: "DELETE",
     }).then(() => {
@@ -74,19 +78,11 @@ export const VehicleList = () => {
     })
   }
 
-  // const handleSelectLocation = (loc) => {
-  //   const copy = { ...userChoices }
-  //   copy.locationId = parseInt(loc.id)
-  //   copy.locationName = loc.name
-  //   setUserChoices(copy)
-  //   filterVehicles()
-  // }
+
 
   return (
     <>
       <div className="vehicle-container">
-        {/* <div>
-        </div> */}
         {vehicles?.map((vehicleObj) => {
           return (
             <div className="vehicle-card" key={vehicleObj.id}>
@@ -112,6 +108,8 @@ export const VehicleList = () => {
                 </div>
               </Link>
               <div className="card-buttons">
+
+              {broUserObject.sales ? (
                 <button
                   value={vehicleObj.id}
                   onClick={(event) => {
@@ -121,6 +119,19 @@ export const VehicleList = () => {
                 >
                   Edit
                 </button>
+                 ) : (
+                  <button
+                  value={vehicleObj.id}
+                  onClick={(event) => {
+                    navigate("/vehicles/edit")
+                    localStorage.setItem("editVehicleId", event.target.value)
+                  }}
+                >
+                  Edit Location
+                </button>
+                )}
+
+                {broUserObject.sales ? (
                 <button
                   className="vehicle-delete"
                   value={vehicleObj.id}
@@ -130,6 +141,9 @@ export const VehicleList = () => {
                 >
                   Delete
                 </button>
+                ) : (
+              ""
+            )}
               </div>
             </div>
           )

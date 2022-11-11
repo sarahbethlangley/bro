@@ -12,13 +12,16 @@
     flex-basis: 20%;
     list-style-type: none;
     text-align: center;
+    border: none;
     margin: auto;
     color: whitesmoke;
 }
 
-.navbar_link {
+.navbar_link a:link {
     display: flex;
     flex: auto;
+    text-decoration: none;
     justify-content: space-around;
     color: whitesmoke;
 }
+

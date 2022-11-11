@@ -2,24 +2,23 @@
 
 .vehicle-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    gap: 10px 20px;
     padding: 3rem;
+    margin: 3rem;
   }
   
   .vehicle-card {
     flex: 0 0 25%;
-    display: flex;
-    flex-direction: column;
+    flex-direction: wrap;
+    flex: wrap;
     align-items: center;
-    padding: 3rem;
-    border: 1px dotted cadetblue;
-  }
-
-  .vehicle-delete {
-    margin-left: auto;
-    background-color: rgb(242, 85, 145);
+    justify-content: space-between;
+    padding: 1rem;
+    border: 3px solid red;
   }
 
   .vehicle-edit {
