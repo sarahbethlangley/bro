@@ -4,8 +4,8 @@ export const VehicleSearch = ({ setterFunction }) => {
     return (
         <Container className="container--login">
         <Row>
-          <Col xs={2}></Col>
-          <Col xs={8} align="center">
+          <Col xs={4}></Col>
+          <Col xs={4} align="center">
             <input
                 onChange={
                     (changeEvent) => {
@@ -15,7 +15,7 @@ export const VehicleSearch = ({ setterFunction }) => {
             
             type="text" placeholder ="enter stock number" />
         </Col>
-        <Col xs={2}></Col>
+        <Col xs={4}></Col>
       </Row>
       </Container>
     )

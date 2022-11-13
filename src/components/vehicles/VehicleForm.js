@@ -12,6 +12,7 @@ export const VehicleForm = () => {
     locationName: "",
     locationId: 0,
     imageURL: "",
+    description: ""
   });
 
   const navigate = useNavigate();
@@ -113,12 +114,13 @@ export const VehicleForm = () => {
               </fieldset>
               <fieldset>
                 <div className="form-group">
-                  <label htmlFor="model">Image URL </label>
+                  <label htmlFor="imageURL">Image URL </label>
                   <input
-                    id="image"
-                    type="text"
                     className="form-control"
-                    placeholder="image url"
+                    id="imageURL"
+                    type="text"
+                    name="imageURL"
+                    placeholder="Image URL"
                     value={userChoices.imageURL}
                     onChange={(event) => {
                       const copy = { ...userChoices };
@@ -130,10 +132,28 @@ export const VehicleForm = () => {
               </fieldset>
               <fieldset>
                 <div className="form-group">
-                  <label htmlFor="make">Locations : </label>
+                  <label htmlFor="make">Location : </label>
                   <LocationFilter
                     id="locationId"
                     handleSelectLocation={handleSelectLocation}
+                  />
+                </div>
+              </fieldset>
+              <fieldset>
+                <div className="form-group">
+                  <label htmlFor="description">Location Information </label>
+                  <input
+                    className="form-control"
+                    id="description"
+                    type="text"
+                    name="description"
+                    placeholder="Bro Where's That Car?"
+                    value={userChoices.description}
+                    onChange={(event) => {
+                      const copy = { ...userChoices };
+                      copy.description = event.target.value;
+                      setUserChoices(copy);
+                    }}
                   />
                 </div>
               </fieldset>

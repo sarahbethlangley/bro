@@ -41,6 +41,9 @@ export const VehicleShow = (evt) => {
           <div className="vehicle-location">
             Location: {vehicle.locationName}
           </div>
+          <div className="vehicle-make">
+            <p>Off-Site Information: {vehicle.description}</p>
+          </div>
         </div>
       </div>
     </>

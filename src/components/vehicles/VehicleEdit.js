@@ -8,8 +8,10 @@ export const VehicleEdit = (evt) => {
     stockNumber: "",
     make: "",
     model: "",
+    imageURL: "",
     locationName: "",
     locationId: 0,
+    description: ""
   });
 
   const localBroUser = localStorage.getItem("bro_user");
@@ -89,7 +91,6 @@ export const VehicleEdit = (evt) => {
                       id="stockNumber"
                       type="text"
                       name="stockNumber"
-                      // the value is only allowed because it IS a controlled field, and that allows you to edit it, otherwise the value would not be editable.  point of controlled input is ot fight against attack
                       value={vehicle.stockNumber}
                       onChange={handleUserInput}
                     />
@@ -135,12 +136,13 @@ export const VehicleEdit = (evt) => {
               <fieldset>
                 {broUserObject.sales ? (
                   <div className="form-group">
-                    <label htmlFor="model">Image URL </label>
+                    <label htmlFor="imageURL">Image URL : </label>
                     <input
-                      id="image"
-                      type="text"
                       className="form-control"
-                      placeholder="image url"
+                      id="imageURL"
+                      type="text"
+                      name="imageURL"
+                      placeholder="Image URL"
                       value={vehicle.imageURL}
                       onChange={handleUserInput}
                     />
@@ -151,7 +153,7 @@ export const VehicleEdit = (evt) => {
               </fieldset>
               <fieldset>
                 <div className="form-group">
-                  <label htmlFor="locationName">Locations : </label>
+                  <label htmlFor="locationName">Location : </label>
                   <LocationFilter
                     className="form-control"
                     key={vehicle.locationName}
@@ -162,6 +164,20 @@ export const VehicleEdit = (evt) => {
                     onChange={handleUserInput}
                   />
                 </div>
+              </fieldset>
+              <fieldset>
+                  <div className="form-group">
+                    <label htmlFor="description">Location Information : </label>
+                    <input
+                      className="form-control"
+                      id="description"
+                      type="text"
+                      name="description"
+                      placeholder="Bro Where's That Car?"
+                      value={vehicle.description}
+                      onChange={handleUserInput}
+                    />
+                  </div>
               </fieldset>
             </form>
             <button

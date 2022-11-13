@@ -18,7 +18,9 @@ export const VehicleList = ( {searchTermState}) => {
   const linkStyle = {
     margin: "1rem",
     textDecoration: "none",
-    color: 'blue'}
+    color: 'blue',
+  
+  }
 
   const [userChoices, setUserChoices] = useState({
     stockNumber: "",
@@ -130,17 +132,24 @@ export const VehicleList = ( {searchTermState}) => {
                   localStorage.setItem("showVehicleId", vehicleObj.id)
                
                 }}
+
+                
               >
+                <div className="vehicle-imageURL">
+          <p><img src={vehicleObj.imageURL} alt="upload image URL" width="150" /></p>
+        </div>
                 <div className="vehicle-stockNumber">
                   <p>Stock Number: {vehicleObj.stockNumber} </p>
                 </div>
                 <div className="vehicle-make">
                   <p>Make: {vehicleObj.make}</p>
                 </div>
-                <div className="vehicle-model">Model: {vehicleObj.model}</div>
+                <div className="vehicle-model">
+                  <p>Model: {vehicleObj.model}</p>
+                  </div>
 
                 <div className="vehicle-location">
-                  Location: {vehicleObj.locationName}
+                  <p>Location: {vehicleObj.locationName}</p>
                 </div>
               </Link>
               <div className="card-buttons">
