@@ -22,7 +22,14 @@ export const VehicleShow = (evt) => {
   return (
     <>
       <div className="vehicle-show-container">
-        <div className="vehicle-card" key={vehicle.id}>
+        <div className="vehicle-show-card" key={vehicle.id}>
+
+        <div className="vehicle-imageURL">
+          <img src={vehicle.imageURL} alt="vehicle image" width="333" height="300" />
+        </div>
+
+
+
           <div className="vehicle-stockNumber">
             <p>Stock Number: {vehicle.stockNumber} </p>
           </div>

@@ -4,7 +4,10 @@ import { VehicleForm } from "../vehicles/VehicleForm";
 import { VehicleList } from "../vehicles/VehicleList"
 import { VehicleEdit } from "../vehicles/VehicleEdit";
 import { VehicleShow } from "../vehicles/VehicleShow";
+import { VehicleContainer } from "../vehicles/VehicleContainer"
 import { useEffect, useState } from "react"
+import { Row, Col, Container } from "react-bootstrap";
+
 
 export const SalesView = () => {
 
@@ -27,17 +30,10 @@ export const SalesView = () => {
     <Routes>
       <Route
         path="/"
-        element={
-          <>
-            <h1 className= "bro-title">Bro Where's That Car</h1>
-            <div className= "bro-subtitle">Locating vehicles across the dealership and beyond</div>
-
-            <Outlet />
-          </>
-        }
       >
         <Route path="/vehicles" element={<VehicleList />} />
         <Route path="/vehicles/create" element={<VehicleForm />} />
+        <Route path="/" element={ <VehicleContainer /> } />
         <Route path="/vehicles/edit" element={<VehicleEdit />} />
         <Route path="/vehicles/view" element={<VehicleShow />} />
       </Route>

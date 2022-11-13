@@ -2,15 +2,23 @@ import React from "react"
 import { useNavigate, Link } from "react-router-dom"
 // import { LocationFilter } from "./LocationFilter"
 import { useState, useEffect } from "react"
+import { Row, Col, Container, Card } from "react-bootstrap";
 
 
-export const VehicleList = () => {
+
+export const VehicleList = ( {searchTermState}) => {
   const [vehicles, setVehicles] = useState([])
   const [locationId, setLocationId] = useState([])
   const [location, setLocation] = useState({})
+  const [filteredProducts, setFiltered] = useState([])
 
   const localBroUser = localStorage.getItem("bro_user")
   const broUserObject = JSON.parse(localBroUser)
+
+  const linkStyle = {
+    margin: "1rem",
+    textDecoration: "none",
+    color: 'blue'}
 
   const [userChoices, setUserChoices] = useState({
     stockNumber: "",
@@ -21,6 +29,18 @@ export const VehicleList = () => {
   })
 
   const navigate = useNavigate()
+
+
+  useEffect(
+    ()=>{
+        const searchVehicles = vehicles.filter(vehicle => {
+            return vehicle.stockNumber.toLowerCase().startsWith(searchTermState.toLowerCase())
+        })
+        setFiltered(searchVehicles)
+    }, [ searchTermState ]
+)
+
+
 
   // simple post request with JSON body using fetch https://jasonwatmore.com/post/2020/02/01/react-fetch-http-post-request-examples
   const getAllVehicles = () => {
@@ -82,12 +102,28 @@ export const VehicleList = () => {
 
   return (
     <>
-      <div className="vehicle-container">
+    <Container>
+              <Row>
+                <Col xs={2}></Col>
+                <Col xs={8} align="center">
+                  <h1 className="bro-title">Bro Where's That Car?</h1>
+                  <div className="bro-subtitle">
+                    <h2>Locating vehicles across the dealership and beyond</h2>
+                  </div>
+                </Col>
+                <Col xs={2}></Col>
+              </Row>
+            </Container>
+      <Container className="vehicle-container">
+        <Row>
         {vehicles?.map((vehicleObj) => {
           return (
-            <div className="vehicle-card" key={vehicleObj.id}>
+            
+            <Col align="center">
+            <Card style={{ width: '18rem' }}className="vehicle-card" key={vehicleObj.id}>
               <Link
                 to={`/vehicles/view`}
+                style={linkStyle}
                 value={vehicleObj.id}
                 onClick={(event) => {
                 
@@ -133,7 +169,6 @@ export const VehicleList = () => {
 
                 {broUserObject.sales ? (
                 <button
-                  className="vehicle-delete"
                   value={vehicleObj.id}
                   onClick={(event) => {
                     handleDelete(event)
@@ -145,10 +180,13 @@ export const VehicleList = () => {
               ""
             )}
               </div>
-            </div>
+            </Card>
+            </Col>
           )
+
         })}
-      </div>
+        </Row>
+      </Container>
     </>
   )
 }

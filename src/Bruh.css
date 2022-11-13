@@ -1,31 +1,63 @@
 @import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rubik+Bubbles&display=swap');
 
 /*Typography
 --------------------------------------------------------------*/
 body,
-button,
 input,
 select,
 textarea {
-  color: #404040;
   font-family: "Comfortaa", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
+  margin: 2%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  width: 80%;
+  margin: 10%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+  background-color: darkslategray;
+  color: white
+}
+
+button:hover {
+  background-color: royalblue;
 }
 
 body {
-    padding: 0 3rem;
+  background: linear-gradient(90deg, #99b8fc 0%, #fefbfb 100%)
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
+  font-family: 'Rubik Bubbles', cursive;
+  letter-spacing: 2px;
+  padding-bottom: 2%;
+  padding-top: 5%;
+}
+
+h2 {
+  font-family: 'Bebas Neue', cursive;
+}
+
+h3, h4, h5, h6 {
   font-family: "Patua One", serif;
   letter-spacing: 2px;
+  padding-bottom: 2%;
+  padding-top: 5%;
 }
 
 p {
   margin-bottom: 1.5em;
 }
 
+input {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
 
-
-
+label {
+  margin-top: 3%;
+}

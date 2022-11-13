@@ -1,13 +1,14 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Saira&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rubik+Bubbles&display=swap');
 
 .vehicle-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     gap: 10px 20px;
-    padding: 3rem;
+    padding: 2.9rem;
     margin: 3rem;
   }
   
@@ -16,15 +17,22 @@
     flex-direction: wrap;
     flex: wrap;
     align-items: center;
+    font-family: 'Bebas Neue', cursive;
+    background-color: rgb(244, 244, 235);
     justify-content: space-between;
-    padding: 1rem;
-    border: 3px solid red;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
   }
 
   .vehicle-edit {
     margin-left: auto;
-    background-color: cadetblue;
+    background-color: rgb(151, 160, 95);
+
   }
+
 
   .vehicle-delete {
     margin-left: auto;
@@ -40,4 +48,19 @@
   .vehicle-filter-title {
     display: flex;
     justify-content: center;
+  }
+
+  .vehicle-show-card {
+    flex: 0 0 25%;
+    flex-direction: wrap;
+    flex: wrap;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Bebas Neue', cursive;
+    background-color: rgb(244, 244, 235);
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
   }

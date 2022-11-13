@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { LocationFilter } from "./LocationFilter";
+import { Row, Col, Container } from "react-bootstrap";
 
 export const VehicleEdit = (evt) => {
   const [vehicle, setVehicle] = useState({
@@ -16,7 +17,6 @@ export const VehicleEdit = (evt) => {
 
   const navigate = useNavigate();
 
-  // setting this value to this variable.  why?  to pass this value in the fetch in order to pull this info, which was set in the onClick event on VL.  onClick, i'm navigating to the edit form and then setting the value to whatever the edit vehicle id is
   const vehicleEditId = localStorage.getItem("editVehicleId");
 
   const handleSelectLocation = (loc) => {
@@ -35,7 +35,7 @@ export const VehicleEdit = (evt) => {
       .then((response) => response.json())
       .then((vehicle) => setVehicle(vehicle));
   };
- 
+
   useEffect(() => {
     getVehicleById();
   }, []);
@@ -61,86 +61,121 @@ export const VehicleEdit = (evt) => {
 
   return (
     <>
-      <div className="vehicle-form-container">
-        <form className="vehicle-form">
-          <h2 className="vehicle-form-title">Edit Vehicle Entry Form</h2>
+      <Container>
+        <Row>
+          <Col xs={2}></Col>
+          <Col xs={8} align="center">
+            <h1 className="bro-title">Bro Where's That Car?</h1>
+            <div className="bro-subtitle">
+            <h2>Locating vehicles across the dealership and beyond</h2>
+            </div>
+          </Col>
+          <Col xs={2}></Col>
+        </Row>
+      </Container>
+      <Container className="vehicle-form-container">
+        <Row>
+          <Col xs={2}></Col>
+          <Col xs={8} align="center">
+            <form className="vehicle-form">
+              <h2 className="vehicle-form-title">Edit Vehicle Entry Form</h2>
 
-          <fieldset>
-            {broUserObject.sales ? (
-              <div className="form-group">
-                <label htmlFor="stockNumber">Stock Number : </label>
-                <input
-                  className="form-control"
-                  id="stockNumber"
-                  type="text"
-                  name="stockNumber"
-                  // the value is only allowed because it IS a controlled field, and that allows you to edit it, otherwise the value would not be editable.  point of controlled input is ot fight against attack
-                  value={vehicle.stockNumber}
-                  onChange={handleUserInput}
-                />
-              </div>
-            ) : (
-              ""
-            )}
-          </fieldset>
-          <fieldset>
-            {broUserObject.sales ? (
-              <div className="form-group">
-                <label htmlFor="make">Make : </label>
-                <input
-                  className="form-control"
-                  id="make"
-                  type="text"
-                  name="make"
-                  value={vehicle.make}
-                  onChange={handleUserInput}
-                />
-              </div>
-            ) : (
-              ""
-            )}
-          </fieldset>
-          <fieldset>
-          {broUserObject.sales ? (
-            <div className="form-group">
-              <label htmlFor="model">Model : </label>
-              <input
-                className="form-control"
-                id="model"
-                type="text"
-                name="model"
-                value={vehicle.model}
-                onChange={handleUserInput}
-              />
-            </div>
-             ) : (
-              ""
-            )}
-          </fieldset>
-          <fieldset>
-            <div className="form-group">
-              <label htmlFor="locationName">Locations : </label>
-              <LocationFilter
-                className="form-control"
-                key={vehicle.locationName}
-                id="locationId"
-                name="locationName"
-                value={vehicle.locationName}
-                handleSelectLocation={handleSelectLocation}
-                onChange={handleUserInput}
-              />
-            </div>
-          </fieldset>
-        </form>
-      </div>
-      <button
-        className="button"
-        onClick={(event) => {
-          handleEditVehicle(event);
-        }}
-      >
-        Update Vehicle
-      </button>
+              <fieldset>
+                {broUserObject.sales ? (
+                  <div className="form-group">
+                    <label htmlFor="stockNumber">Stock Number : </label>
+                    <input
+                      className="form-control"
+                      id="stockNumber"
+                      type="text"
+                      name="stockNumber"
+                      // the value is only allowed because it IS a controlled field, and that allows you to edit it, otherwise the value would not be editable.  point of controlled input is ot fight against attack
+                      value={vehicle.stockNumber}
+                      onChange={handleUserInput}
+                    />
+                  </div>
+                ) : (
+                  ""
+                )}
+              </fieldset>
+              <fieldset>
+                {broUserObject.sales ? (
+                  <div className="form-group">
+                    <label htmlFor="make">Make : </label>
+                    <input
+                      className="form-control"
+                      id="make"
+                      type="text"
+                      name="make"
+                      value={vehicle.make}
+                      onChange={handleUserInput}
+                    />
+                  </div>
+                ) : (
+                  ""
+                )}
+              </fieldset>
+              <fieldset>
+                {broUserObject.sales ? (
+                  <div className="form-group">
+                    <label htmlFor="model">Model : </label>
+                    <input
+                      className="form-control"
+                      id="model"
+                      type="text"
+                      name="model"
+                      value={vehicle.model}
+                      onChange={handleUserInput}
+                    />
+                  </div>
+                ) : (
+                  ""
+                )}
+              </fieldset>
+              <fieldset>
+                {broUserObject.sales ? (
+                  <div className="form-group">
+                    <label htmlFor="model">Image URL </label>
+                    <input
+                      id="image"
+                      type="text"
+                      className="form-control"
+                      placeholder="image url"
+                      value={vehicle.imageURL}
+                      onChange={handleUserInput}
+                    />
+                  </div>
+                ) : (
+                  ""
+                )}
+              </fieldset>
+              <fieldset>
+                <div className="form-group">
+                  <label htmlFor="locationName">Locations : </label>
+                  <LocationFilter
+                    className="form-control"
+                    key={vehicle.locationName}
+                    id="locationId"
+                    name="locationName"
+                    value={vehicle.locationName}
+                    handleSelectLocation={handleSelectLocation}
+                    onChange={handleUserInput}
+                  />
+                </div>
+              </fieldset>
+            </form>
+            <button
+              className="button"
+              onClick={(event) => {
+                handleEditVehicle(event);
+              }}
+            >
+              Update Vehicle
+            </button>
+          </Col>
+          <Col xs={2}></Col>
+        </Row>
+      </Container>
     </>
   );
 };
