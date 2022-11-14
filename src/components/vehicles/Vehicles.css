@@ -134,4 +134,21 @@
   
 }
 
+.form--login {
+  flex: 0 0 25%;
+  flex-direction: wrap;
+  flex: wrap;
+  align-items: center;
+  width: 90%;
+  justify-content: space-between;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.form-control {
+  width: 93%;
+}
 
