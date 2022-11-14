@@ -52,7 +52,7 @@ export const VehicleForm = () => {
           <Col xs={2}></Col>
         </Row>
       </Container>
-      <Container className="vehicle-form-container">
+      <Container className="vehicle-form-container" autocomplete="off">
         <Row>
           <Col xs={2}></Col>
           <Col xs={8} align="center">

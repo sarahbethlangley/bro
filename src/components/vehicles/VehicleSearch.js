@@ -2,11 +2,12 @@ import { Row, Col, Container } from "react-bootstrap";
 
 export const VehicleSearch = ({ setterFunction }) => {
     return (
-        <Container className="container--login">
+        <Container className="container-search">
         <Row>
           <Col xs={4}></Col>
           <Col xs={4} align="center">
-            <input
+            <input 
+                className="search-bar"
                 onChange={
                     (changeEvent) => {
                         setterFunction(changeEvent.target.value)
