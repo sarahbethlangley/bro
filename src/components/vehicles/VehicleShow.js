@@ -34,7 +34,7 @@ export const VehicleShow = (evt) => {
             <p>Stock Number: {vehicle.stockNumber} </p>
           </div>
           <div className="vehicle-make">
-            <p>Make: {vehicle.make}</p>
+            Make: {vehicle.make}
           </div>
           <div className="vehicle-model">Model: {vehicle.model}</div>
 
@@ -42,7 +42,7 @@ export const VehicleShow = (evt) => {
             Location: {vehicle.locationName}
           </div>
           <div className="vehicle-make">
-            <p>Off-Site Information: {vehicle.description}</p>
+            <p>Location Information: {vehicle.description}</p>
           </div>
         </div>
       </div>
