@@ -180,7 +180,11 @@ export const VehicleList = ( {searchTermState}) => {
                 <button
                   value={vehicleObj.id}
                   onClick={(event) => {
-                    handleDelete(event)
+                    if (window.confirm("You sure, Bro?")) {
+                    handleDelete(event)}
+                    else {
+                      
+                    }
                   }}
                 >
                   Delete
