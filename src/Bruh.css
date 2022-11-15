@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
 
 /*Typography
 --------------------------------------------------------------*/
@@ -33,7 +34,8 @@ body {
 }
 
 h1 {
-  font-family: 'Rubik Bubbles', cursive;
+  font-family: 'Bowlby One SC', cursive;
+  font-size: 35px;
   letter-spacing: 2px;
   padding-bottom: 2%;
   padding-top: 3%;
@@ -73,7 +75,7 @@ label {
 }
 
 .product-item {
-  font-size: x-large;
+  font-size: xx-large;
   
 
 }
