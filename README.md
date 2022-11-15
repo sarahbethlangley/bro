@@ -6,7 +6,7 @@ Bro Where's That Car? is a simple vehicle locator app geared towards dealership 
 
 ### Problem Solved 
 
-The purpose of this application is to help salespeople and service technicians locate specific vehicles on or off a dealership car lot.  When a salesperson has a customer coming in or a service technician needs to do a UCI (used car inspection), sometimes it’s difficult to know exactly where that car is.  Maybe a salesperson has it out with a customer.  Sometimes a service technician has it parked out back for two weeks, waiting on a part.  This application will help employees easily locate a vehicle as either in sales, service, or off-site and allows for further information about where the vehicle is.  As a ten year veteran of the car business, I can personally vouch for how useful this application is.
+The purpose of this application is to help salespeople and service technicians locate specific vehicles on or off a dealership car lot.  When a salesperson has a customer coming in or a service technician needs to do a UCI (used car inspection), sometimes it’s difficult to know exactly where that car is.  Maybe a salesperson has it out with a customer.  Sometimes a service technician has it parked out back for two weeks, waiting on a part.  This application will help employees easily locate a vehicle as either in sales, service, or off-site and allows for further information about where the vehicle is.  
 
 ### Installation
 
