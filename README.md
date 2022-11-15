@@ -19,7 +19,7 @@ The purpose of this application is to help salespeople and service technicians l
 ### Technologies
 
 - React
-- React-Strap
+- Boot-Strap
 - Javascript
 - JSX
 - CSS
