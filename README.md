@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+Bro Where's That Car?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About Bro Where's That Car?
 
-## Available Scripts
+Bro Where's That Car? is a simple vehicle locator app geared towards dealership employees searching for a specific vehicle.
 
-In the project directory, you can run:
+### Problem Solved 
 
-### `npm start`
+The purpose of this application is to help salespeople and service technicians locate specific vehicles on or off a dealership car lot.  When a salesperson has a customer coming in or a service technician needs to do a UCI (used car inspection), sometimes it’s difficult to know exactly where that car is.  Maybe a salesperson has it out with a customer.  Sometimes a service technician has it parked out back for two weeks, waiting on a part.  This application will solve the problem of where the vehicle is located.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```git clone git@github.com:sarahbethlangley/bro.git```
 
-### `npm test`
+```npm install```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```npm start```
 
-### `npm run build`
+### Technologies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+- React-Strap
+- Javascript
+- JSX
+- CSS
+- HTML
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Acknowledgements
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- A huge thank you to Ross who really helped me understand the relationship between stress and code. 
+- Everyone in your mom's basement for letting me sit in the dark when I needed it.
+- ALL of Cohort #59 for being such a radically awesome group of cool people  
 
-### `npm run eject`
+### Planning
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[ERD](https://drawsql.app/teams/sarah-beths-team/diagrams/bro-where-s-that-car)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Wire Frame](https://sketchboard.me/XDvmRm6HyJr)
