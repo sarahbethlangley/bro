@@ -120,7 +120,7 @@ export const VehicleForm = () => {
                     id="imageURL"
                     type="text"
                     name="imageURL"
-                    placeholder="Image URL"
+                    placeholder="Optional Dealer Image URL"
                     value={userChoices.imageURL}
                     onChange={(event) => {
                       const copy = { ...userChoices };
