@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/bro/static/css/main.b76caa0d.css",
+    "main.js": "/bro/static/js/main.2249c221.js",
+    "static/js/787.f65ef883.chunk.js": "/bro/static/js/787.f65ef883.chunk.js",
+    "static/media/clipart4601061.png": "/bro/static/media/clipart4601061.1a2a78f2a0abd5156a98.png",
+    "index.html": "/bro/index.html",
+    "main.b76caa0d.css.map": "/bro/static/css/main.b76caa0d.css.map",
+    "main.2249c221.js.map": "/bro/static/js/main.2249c221.js.map",
+    "787.f65ef883.chunk.js.map": "/bro/static/js/787.f65ef883.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b76caa0d.css",
+    "static/js/main.2249c221.js"
+  ]
+}
