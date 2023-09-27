@@ -12,7 +12,7 @@ export const VehicleForm = () => {
     locationName: "",
     locationId: 0,
     imageURL: "",
-    description: ""
+    description: "",
   });
 
   const navigate = useNavigate();
