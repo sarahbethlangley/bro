@@ -11,7 +11,7 @@ export const VehicleEdit = (evt) => {
     imageURL: "",
     locationName: "",
     locationId: 0,
-    description: ""
+    description: "",
   });
 
   const localBroUser = localStorage.getItem("bro_user");
@@ -69,7 +69,7 @@ export const VehicleEdit = (evt) => {
           <Col xs={8} align="center">
             <h1 className="bro-title">Bro Where's That Car?</h1>
             <div className="bro-subtitle">
-            <h2>Locating vehicles across the dealership and beyond</h2>
+              <h2>Locating vehicles across the dealership and beyond</h2>
             </div>
           </Col>
           <Col xs={2}></Col>
@@ -88,6 +88,7 @@ export const VehicleEdit = (evt) => {
                     <label htmlFor="stockNumber">Stock Number : </label>
                     <input
                       className="form-control"
+                      invalid={vehicle}
                       id="stockNumber"
                       type="text"
                       name="stockNumber"
@@ -166,18 +167,18 @@ export const VehicleEdit = (evt) => {
                 </div>
               </fieldset>
               <fieldset>
-                  <div className="form-group">
-                    <label htmlFor="description">Location Information : </label>
-                    <input
-                      className="form-control"
-                      id="description"
-                      type="text"
-                      name="description"
-                      placeholder="Bro Where's That Car?"
-                      value={vehicle.description}
-                      onChange={handleUserInput}
-                    />
-                  </div>
+                <div className="form-group">
+                  <label htmlFor="description">Location Information : </label>
+                  <input
+                    className="form-control"
+                    id="description"
+                    type="text"
+                    name="description"
+                    placeholder="Bro Where's That Car?"
+                    value={vehicle.description}
+                    onChange={handleUserInput}
+                  />
+                </div>
               </fieldset>
             </form>
             <button
